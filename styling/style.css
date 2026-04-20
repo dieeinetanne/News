@@ -4,8 +4,7 @@
 
 @font-face {
   font-family: "Knockout";
-  src: url("../assets/fonts/Knockout-HTF90-UltmtWelterwt.ttf")
-    format("truetype");
+  src: url("../assets/fonts/Knockout-HTF90-UltmtWelterwt.ttf") format("truetype");
 }
 
 body {
@@ -14,16 +13,14 @@ body {
   font-style: normal;
   color: #ffffff;
   background-image: url("../assets/img/Galaxy_gross.jpg");
-  background-size: cover; /* Bild füllt den Raum komplett aus */
-  background-attachment: fixed; /* Bild bleibt beim Scrollen fixiert */
-  background-position: center; /* Bild wird mittig ausgerichtet */
-  background-repeat: no-repeat; /* Verhindert Kachelbildung */
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 3%;
+  padding: 3% 10% 80px 10%;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
@@ -33,38 +30,45 @@ h1 {
   font-family: "Knockout", sans-serif;
   font-weight: 400;
   font-size: clamp(2rem, 10vw, 15rem);
-  margin: 0;
+  margin: 0 0 20px 0;
   letter-spacing: 0.02em;
-  width: auto;
-  grid-column: 1 / 4;
   text-align: left;
+  column-span: all;
+  width: 100%;
 }
 
 .header-container {
   display: flex;
-  flex-direction: row;
   justify-content: flex-end;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .stutzmedien-logo {
   width: 20%;
-  margin-right: 20%;
 }
 
 .news-container {
+  column-count: 3;
+  column-gap: 20px;
   width: 100%;
-  display: grid;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto repeat(3, 1fr);
-  gap: 20px;
+}
+
+h2 { 
+  font-family: "Knockout", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  margin: 0 0 10px 0;
+  letter-spacing: 0.02em;
 }
 
 .content-item {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid white;
-  min-height: 200px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  margin-bottom: 20px;
+  break-inside: avoid;
+  display: block;
+  width: 100%;
 }
 
 .container.footer {
@@ -72,13 +76,12 @@ h1 {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 10px 20px;
   height: 60px;
-  /* Transparent-Pinker Verlauf (Linear) */
+  padding: 10px 20px;
   background: linear-gradient(
     to bottom right,
-    /* von oben links nach unten rechts */ rgba(255, 192, 203, 0) 0%,
-    /* Transparentes Rosa (0% Deckkraft) */ rgba(255, 105, 180, 0.7) 100%
-      /* Kräftigeres Pink (70% Deckkraft) */
+    rgba(255, 192, 203, 0) 0%,
+    rgba(255, 105, 180, 0.7) 100%
   );
+  z-index: 1000;
 }
