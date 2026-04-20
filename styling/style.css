@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Knockout";
+  src: url("../assets/fonts/Knockout-HTF90-UltmtWelterwt.ttf")
+    format("truetype");
+}
+
+body {
+  font-family: "schnebel-sans-me", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-image: url("../assets/img/Galaxy_gross.jpg");
+  background-size: cover;
+  color: #ffffff;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: "schnebel-sans-me", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.header-container {
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.container.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    height: 60px;
+  /* Transparent-Pinker Verlauf (Linear) */
+  background: linear-gradient(
+    to bottom right,
+    /* von oben links nach unten rechts */ rgba(255, 192, 203, 0)
+      0%,
+    /* Transparentes Rosa (0% Deckkraft) */ rgba(255, 105, 180, 0.7)
+      100% /* Kräftigeres Pink (70% Deckkraft) */
+  );
+}
