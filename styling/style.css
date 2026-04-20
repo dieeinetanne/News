@@ -12,42 +12,73 @@ body {
   font-family: "schnebel-sans-me", sans-serif;
   font-weight: 400;
   font-style: normal;
-  background-image: url("../assets/img/Galaxy_gross.jpg");
-  background-size: cover;
   color: #ffffff;
+  background-image: url("../assets/img/Galaxy_gross.jpg");
+  background-size: cover; /* Bild füllt den Raum komplett aus */
+  background-attachment: fixed; /* Bild bleibt beim Scrollen fixiert */
+  background-position: center; /* Bild wird mittig ausgerichtet */
+  background-repeat: no-repeat; /* Verhindert Kachelbildung */
+  width: 100%;
+  min-height: 100vh;
   margin: 0;
-  padding: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 3%;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 h1 {
-  font-family: "schnebel-sans-me", sans-serif;
+  font-family: "Knockout", sans-serif;
   font-weight: 400;
-  font-style: normal;
-  font-size: 3em;
-  margin-bottom: 0.5em;
+  font-size: clamp(2rem, 10vw, 15rem);
+  margin: 0;
+  letter-spacing: 0.02em;
+  width: auto;
+  grid-column: 1 / 4;
+  text-align: left;
 }
 
 .header-container {
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.stutzmedien-logo {
+  width: 20%;
+  margin-right: 20%;
+}
+
+.news-container {
+  width: 100%;
+  display: grid;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto repeat(3, 1fr);
+  gap: 20px;
+}
+
+.content-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  min-height: 200px;
 }
 
 .container.footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px 20px;
-    height: 60px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  height: 60px;
   /* Transparent-Pinker Verlauf (Linear) */
   background: linear-gradient(
     to bottom right,
-    /* von oben links nach unten rechts */ rgba(255, 192, 203, 0)
-      0%,
-    /* Transparentes Rosa (0% Deckkraft) */ rgba(255, 105, 180, 0.7)
-      100% /* Kräftigeres Pink (70% Deckkraft) */
+    /* von oben links nach unten rechts */ rgba(255, 192, 203, 0) 0%,
+    /* Transparentes Rosa (0% Deckkraft) */ rgba(255, 105, 180, 0.7) 100%
+      /* Kräftigeres Pink (70% Deckkraft) */
   );
 }
