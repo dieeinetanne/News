@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: "Knockout";
-  src: url("../assets/fonts/Knockout-HTF90-UltmtWelterwt.ttf") format("truetype");
+  src: url("../assets/fonts/Knockout-HTF90-UltmtWelterwt.ttf")
+    format("truetype");
 }
 
 body {
@@ -18,11 +19,12 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  min-height: 100vh;
   margin: 0;
   padding: 3% 10% 80px 10%;
   display: flex;
   flex-direction: column;
+position: relative;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -37,6 +39,21 @@ h1 {
   width: 100%;
 }
 
+.verlauf-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 30%;
+  background: linear-gradient(
+    to top,
+    rgba(255, 192, 203, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: -10;
+  pointer-events: none;
+}
+
 .header-container {
   display: flex;
   justify-content: flex-end;
@@ -46,6 +63,7 @@ h1 {
 
 .stutzmedien-logo {
   width: 20%;
+  z-index: 100;
 }
 
 .news-container {
@@ -54,21 +72,51 @@ h1 {
   width: 100%;
 }
 
-h2 { 
+h2 {
   font-family: "Knockout", sans-serif;
   font-weight: 400;
-  font-size: clamp(1.5rem, 5vw, 3rem);
   margin: 0 0 10px 0;
   letter-spacing: 0.02em;
 }
 
+.content-item h2 {
+  /* 10cqi bedeutet: Die Schrift ist immer 10% so breit wie das Item selbst */
+  font-size: clamp(1.2rem, 12cqi, 2.5rem);
+  hyphens: auto; /* Trennt lange Wörter, damit nichts übersteht */
+  word-wrap: break-word;
+}
+
 .content-item {
+text-decoration: none; /* Entfernt den Unterstrich */
+  color: inherit;        /* Übernimmt das Weiß vom Body */
+  display: block;
+  container-type: inline-size;
   background: rgba(255, 255, 255, 0.3);
   padding: 20px;
   margin-bottom: 20px;
   break-inside: avoid;
-  display: block;
-  width: 100%;
+
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+/* HOVER-Effekt (Maus) */
+.content-item:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-5px); /* Kleiner Sprung nach oben */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ACCESSIBILITY-State */
+.content-item:focus-visible {
+  background: rgba(255, 0, 208, 0.4);
+  transform: translateY(-5px);
+}
+
+.content-item:active {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .container.footer {
@@ -84,4 +132,34 @@ h2 {
     rgba(255, 105, 180, 0.7) 100%
   );
   z-index: 1000;
+}
+
+.verlauf-footer {
+  position: absolute;
+bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 55%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 192, 203, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: -10;
+  pointer-events: none;
+}
+
+
+
+/*___________Media Queries___________*/
+@media (max-width: 900px) {
+  .news-container {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .news-container {
+    column-count: 1;
+  }
 }
