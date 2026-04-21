@@ -77,9 +77,24 @@ h2 {
   font-weight: 400;
   margin: 0 0 10px 0;
   letter-spacing: 0.02em;
+font-size: clamp(3rem, 8vw, 10rem);
+  hyphens: auto; /* Trennt lange Wörter, damit nichts übersteht */
+  word-wrap: break-word;
 }
 
-.content-item h2 {
+h3 {
+  font-family: "Knockout", sans-serif;
+  font-weight: 400;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.02em;
+}
+
+.lead {
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  margin-bottom: 15px;
+}
+
+.content-item h3 {
   /* 10cqi bedeutet: Die Schrift ist immer 10% so breit wie das Item selbst */
   font-size: clamp(1.2rem, 12cqi, 2.5rem);
   hyphens: auto; /* Trennt lange Wörter, damit nichts übersteht */
