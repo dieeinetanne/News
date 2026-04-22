@@ -28,6 +28,45 @@
             isoliert betrachten, kann sich ein RNN an vorherige Eingaben in einer Sequenz 
             erinnern und diese für die aktuelle Entscheidung nutzen.<br>Deshalb ist es ideal für sequentielle Daten, also alles, was einen zeitlichen oder kontextuellen Ablauf hat, wie Sätze, Sprache oder Zeitreihen.
 </p>
+<p class="zwischentitel">Die Gedächtnisfunktion – Einfache Erklärung der Funktionsweise</p>
+<p class="grundtext">Stellen Sie sich vor, Sie lesen einen Satz wie: «Die Wolke ist weiss und sehr...»</p>
+<ol class ="grundtext">
+  <li>Normales KI-Netz (kein Gedächtnis): Wenn es das Wort «sehr» sieht, könnte es jedes mögliche Wort vorschlagen, ohne zu wissen, dass vorher «Wolke» und «weiss» kamen.</li>
+  <li>RNN (mit Gedächtnis): Das RNN verarbeitet die Wörter nacheinander.
+    <ul>
+      <li>Es sieht «Die Wolke», speichert das im «Hidden State» (versteckter Zustand) – seinem Gedächtnis.</li>
+      <li>Es sieht «ist weiss», aktualisiert sein Gedächtnis.</li>
+      <li>Wenn es bei «sehr» ankommt, benutzt es sein internes Gedächtnis, das weiss, dass es um eine Wolke und die Farbe weiss ging.</li>
+      <li>Daher schlägt es kontextuell sinnvolle Wörter wie «gross», «flauschig» oder «hell» vor, aber nicht «Auto» oder «Bananen».</li>
+    </ul>
+  </li>
+</ol>
+</ol>
+<p class="grundtext">Das Gedächtnis («Hidden State») ist also der Rückkopplungsmechanismus, der die Ausgabe eines Schritts zur Eingabe des nächsten Schritts macht.</p>
+<p class="zwischentitel">Die Einschränkung des RNN und die Lösungen</p>
+<p class="grundtext">Weil das einfache RNN bei sehr langen Sätzen das anfängliche Wissen verlieren kann, da es unter dem "Vanishing Gradient Problem" leidet, wurden fortschrittlichere Architekturen entwickelt.</p>
+<p class="aufzählung grundtext">Problem: Vanishing Gradient (Vergesslichkeit)</p>
+<p class="grundtext">Bei langen Sequenzen schrumpft das Lernsignal (der Gradient), das zur Korrektur des Netzwerks an den Anfang des Satzes geschickt wird, auf dem Weg dorthin fast auf Null. Das Netz kann die Gewichte am Anfang nicht mehr richtig anpassen und vergisst dadurch die früh im Satz aufgetretenen, aber wichtigen Informationen.</p>
+<p class="aufzählung grundtext">Lösung 1: Long Short-Term Memory (LSTM) und GRU</p>
+<p class="grundtext">LSTM (und die einfachere Variante GRU) ist eine spezielle RNN-Version, die entwickelt wurde, um die Langzeiterinnerung zu verbessern.</p>
+<ul class="grundtext">
+<li>Wie es funktioniert: Eine LSTM-Zelle besitzt neben dem Kurzzeitgedächtnis (Hidden State) einen "Cell State" (Zellzustand), der als Langzeitgedächtnis fungiert.</li>
+<li>Die Gates (Tore): Spezialisierte "Gating"-Mechanismen steuern aktiv, welche Informationen im Cell State behalten, welche gelöscht und welche neu hinzugefügt werden. Dies schützt das Lernsignal davor, zu verschwinden, und ermöglicht es dem Modell, sich über lange Zeiträume präzise zu erinnern.</li>
+</ul>
+<p class="aufzählung grundtext">Lösung 2: Transformer (Die moderne Revolution)</p>
+<p class="grundtext">Der Transformer hat RNNs und LSTMs in der modernen Sprachverarbeitung (Large Language Models wie ChatGPT und Gemini) weitgehend ersetzt.</p>
+<ul class="grundtext">
+<li>Wie es funktioniert: Der Transformer verwirft die sequenzielle (Schritt für Schritt) Verarbeitung und verarbeitet stattdessen den gesamten Satz parallel.</li>
+<li>Der Kern: Aufmerksamkeits-Mechanismus (Attention): Das Modell berechnet für jedes Wort im Satz die Relevanz zu jedem anderen Wort. Es muss sich nicht "erinnern", da es den gesamten Kontext gleichzeitig betrachtet. Dies ermöglicht das schnelle und präzise Verständnis von Beziehungen über extrem grosse Textdistanzen hinweg.</li>
+</ul>
+<p class="zwischentitel">Anwendungsbereiche</p>
+<ul class="grundtext">
+<li>Sprachverarbeitung (NLP): Übersetzungen, Textgenerierung (z. B. Autovervollständigung), Stimmungsanalyse (ist der Text positiv oder negativ?).</li>
+<li>Spracherkennung: Umwandlung von gesprochenen Wörtern in Text.</li>
+<li>Zeitreihenanalyse: Vorhersage von Aktienkursen oder Wetter basierend auf Verlaufsdaten.</li>
+</ul>
+<p class="aufzählung grundtext">Wichtige Varianten:</p>
+<p class="grundtext">Wichtige Varianten sind unter anderem die Long Short-Term Memory (LSTM) und die Gated Recurrent Unit (GRU), die speziell entwickelt wurden, um das Gedächtnis in RNNs besser zu steuern.</p>
       </div>
     </section>
 
@@ -35,7 +74,7 @@
       <div class="verlauf-footer"></div>
       <div class="footer-container">
         <div class="impressum" tabindex="0" role="contentinfo">
-          <p>© 2023-2026 Stutz Medien AG</p>
+          <p>© 2023–2026 Stutz Medien AG</p>
         </div>
       </div>
     </section>

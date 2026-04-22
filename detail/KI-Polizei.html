@@ -24,6 +24,31 @@
       <div class="text">
         <h2>ERSTELLUNG, AUTHENTIFIZIERUNG UND MODELL-EVOLUTION</h2>
         <p class="lead">Ein GAN ist ein spezieller KI-Architekturtyp, der aus zwei konkurrierenden neuronalen Netzwerken besteht, die gegeneinander antreten, um extrem realistische neue Daten zu erschaffen. Man kann es sich wie einen Fälscher und einen Polizisten vorstellen.</p>
+      <p class="zwischentitel">Fälscher gegen Polizist</p>
+<p class="grundtext">Ein GAN besteht immer aus zwei Teilen, die gleichzeitig trainiert werden:</p>
+<ol>
+<li class="grundtext aufzählung">Der Generator (Der Fälscher)</li>
+<p class="grundtext">Was er macht: Er beginnt mit zufälligem "Rauschen" (zufälligen Werten) und versucht, daraus neue Daten zu erzeugen (z. B. ein Bild, das wie ein Hund aussieht, oder eine gefälschte Finanztransaktion).</p>
+<p class="grundtext">Sein Ziel: Er will den Discriminator täuschen und ihn dazu bringen zu glauben, die erzeugten Daten seien echt.</p>
+<li class="grundtext aufzählung">Der Diskriminator (Der Polizist)</li>
+<p class="grundtext">Was er macht: Er bekommt echte Daten aus dem Trainingsset und gefälschte Daten vom Generator. Er muss entscheiden, ob die ihm gezeigten Daten real oder fake sind.</p>
+<p class="grundtext">Sein Ziel: Er will den Generator entlarven und Fälschungen korrekt als solche identifizieren.</p>
+</ol>
+<p class="zwischentitel">Der Trainingsprozess (Das Wettrüsten)</p>
+<p class="grundtext">Die beiden Netzwerke werden abwechselnd trainiert:</p>
+<ol>
+  <li class="grundtext">Der Generator erzeugt etwas Falsches.</li>
+  <li class="grundtext">Der Diskriminator bewertet es als Falsch.</li>
+  <li class="grundtext">Der Generator lernt aus der Niederlage und verbessert seine Fälschung.</li>
+  <li class="grundtext">Der Diskriminator wird besser darin, subtile Fehler in den Fälschungen zu finden.</li>
+</ol>
+<p class="grundtext">Dieses ständige Kräftemessen führt dazu, dass der Generator am Ende Daten erzeugen kann, die von echten kaum zu unterscheiden sind.</p>
+<p class="zwischentitel">Anwendungsbereiche</p>
+<p class="grundtext">GANs sind besonders gut darin, synthetische, realistische Daten zu erzeugen:</p>
+<ul class="grundtext">
+  <li>Bilderzeugung: Erstellung realistischer Bilder (Gesichter, Tiere, Szenen) oder Bearbeitung vorhandener Bilder (z. B. niedrig aufgelöste Bilder hochauflösend machen oder Schwarz-Weiss-Bilder einfärben).</li>
+  <li>Datengenerierung (Data Augmentation): Erzeugung von synthetischen Trainingsdaten für andere KI-Modelle, besonders nützlich, wenn echte Daten knapp oder vertraulich sind (z. B. Erzeugung von seltenen Betrugsfällen für ein Betrugserkennungssystem).</li>
+</ul>
       </div>
     </section>
 
@@ -31,7 +56,7 @@
       <div class="verlauf-footer"></div>
       <div class="footer-container">
         <div class="impressum" tabindex="0" role="contentinfo">
-          <p>© 2023-2026 Stutz Medien AG</p>
+          <p>© 2023–2026 Stutz Medien AG</p>
         </div>
       </div>
     </section>
