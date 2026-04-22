@@ -12,6 +12,7 @@
   <body>
     <section class="header">
       <div class="verlauf-header"></div>
+      <div class="BG-Details"></div>
       <div class="header-container">
         <a href="../index.html" class="stutzmedien-logo">
           <img src="../assets/img/Logo_SM_negativ.svg" alt="Stutzmedien Logo" />
@@ -20,9 +21,62 @@
     </section>
 
     <section class="content">
-        <div class="text">
-      <h2>FUNKTIONSWEISE EINER KI-BILDERKENNUNG</h2>
-      <p class="lead">Im Grunde geht es darum, dass CNNs ein Bild in viele kleine Muster und Merkmale zerlegen und diese dann schrittweise zu einer abschliessenden Entscheidung (z.B. «Das ist eine Katze») zusammensetzen.</p>
+      <div class="text">
+        <h2>FUNKTIONSWEISE EINER KI-BILDERKENNUNG</h2>
+        <p class="lead">
+          Im Grunde geht es darum, dass CNNs ein Bild in viele kleine Muster und
+          Merkmale zerlegen und diese dann schrittweise zu einer abschliessenden
+          Entscheidung (z.B. «Das ist eine Katze») zusammensetzen.
+        </p>
+        <p class="zwischentitel">Einfache Erklärung der Funktionsweise</p>
+        <p class="grundtext">
+          Stellen Sie sich ein CNN wie einen mehrstufigen Detektivprozess vor,
+          der ein Bild untersucht:
+        </p>
+        <ul>
+          <ol>
+        <p class="aufzählung">1. Der Detektor (Convolutional Layer)</p>
+        <p class="grundtext">
+          Was es macht: Dies ist die wichtigste Schicht. Sie benutzt "Filter"
+          (kleine Matrizen), um das gesamte Bild abzutasten. Der Sinn: Jeder
+          Filter sucht nach einem ganz bestimmten Muster, zum Beispiel einer
+          vertikalen Linie, einer Kurve oder einer bestimmten Farbe. Er erzeugt
+          eine "Feature Map", die zeigt, wo dieses Muster im Bild gefunden
+          wurde.
+        </p>
+      </ol>
+        <ol>
+        <p class="aufzählung">2. Der Redakteur (Pooling Layer)</p>
+        <p class="grundtext">
+          Was es macht: Nachdem die Muster gefunden wurden, wird die Feature Map
+          komprimiert ("gepoolt"). Man nimmt zum Beispiel immer nur den
+          wichtigsten Wert aus einem kleinen Bereich. Der Sinn: Das Netz wird
+          kleiner und schneller. Es lernt, die wichtigen Merkmale zu erkennen,
+          egal an welcher genauen Stelle im Bild sie auftauchen (z. B. eine Nase
+          ist eine Nase, egal ob sie links oder rechts im Bild ist).
+        </p>
+      </ol>
+        <ol>
+        <p class="aufzählung">3. Der Klassifizierer (Fully Connected Layer)</p>
+        <p class="grundtext">
+          Was es macht: Die letzten Schichten nehmen die gesammelten,
+          komprimierten Merkmale und kombinieren sie (z. B. "Kurve oben" + "zwei
+          Dreiecke" = Ohr). Der Sinn: Basierend auf all den erkannten Mustern
+          trifft das Netz die endgültige Vorhersage (z. B. 95 %
+          Wahrscheinlichkeit für "Hund", 5 % für "Katze").
+        </p>
+      </ol>
+        </ul>
+        <p class="zwischentitel">Anwendungsbereiche</p>
+        <p class="grundtext">
+          CNNs werden in vielen Bereichen eingesetzt, in denen es ums "Sehen"
+          geht: Bildklassifizierung: Erkennen, was auf einem Foto ist (z. B.
+          Tiere, Autos, Objekte). Objekterkennung: Lokalisieren und Benennen
+          mehrerer Objekte in einem Bild (z. B. in selbstfahrenden Autos).
+          Gesichtserkennung: Entsperren eines Telefons oder Identifizierung von
+          Personen. Medizinische Diagnostik: Analyse von Röntgenbildern oder
+          MRTs zur Erkennung von Krankheiten.
+        </p>
       </div>
     </section>
 

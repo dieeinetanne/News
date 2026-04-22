@@ -23,20 +23,9 @@ body {
   padding: 3% 10% 80px 10%;
   display: flex;
   flex-direction: column;
-position: relative;
+  position: relative;
   min-height: 100vh;
   overflow-x: hidden;
-}
-
-h1 {
-  font-family: "Knockout", sans-serif;
-  font-weight: 400;
-  font-size: clamp(2rem, 10vw, 15rem);
-  margin: 0 0 20px 0;
-  letter-spacing: 0.02em;
-  text-align: left;
-  column-span: all;
-  width: 100%;
 }
 
 .verlauf-header {
@@ -52,6 +41,16 @@ h1 {
   );
   z-index: -10;
   pointer-events: none;
+}
+
+.BG-Details {
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -5;
 }
 
 .header-container {
@@ -72,12 +71,23 @@ h1 {
   width: 100%;
 }
 
+h1 {
+  font-family: "Knockout", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 10vw, 15rem);
+  margin: 0 0 20px 0;
+  letter-spacing: 0.02em;
+  text-align: left;
+  column-span: all;
+  width: 100%;
+}
+
 h2 {
   font-family: "Knockout", sans-serif;
   font-weight: 400;
   margin: 0 0 10px 0;
   letter-spacing: 0.02em;
-font-size: clamp(3rem, 8vw, 10rem);
+  font-size: clamp(3rem, 8vw, 10rem);
   hyphens: auto; /* Trennt lange Wörter, damit nichts übersteht */
   word-wrap: break-word;
 }
@@ -94,6 +104,14 @@ h3 {
   margin-bottom: 15px;
 }
 
+.zwischentitel {
+  font-family: "Knockout", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  text-transform: uppercase;
+}
+
 .content-item h3 {
   /* 10cqi bedeutet: Die Schrift ist immer 10% so breit wie das Item selbst */
   font-size: clamp(1.2rem, 12cqi, 2.5rem);
@@ -102,8 +120,8 @@ h3 {
 }
 
 .content-item {
-text-decoration: none; /* Entfernt den Unterstrich */
-  color: inherit;        /* Übernimmt das Weiß vom Body */
+  text-decoration: none; /* Entfernt den Unterstrich */
+  color: inherit; /* Übernimmt das Weiß vom Body */
   display: block;
   container-type: inline-size;
   background: rgba(255, 255, 255, 0.3);
@@ -111,7 +129,10 @@ text-decoration: none; /* Entfernt den Unterstrich */
   margin-bottom: 20px;
   break-inside: avoid;
 
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
   cursor: pointer;
   outline: none;
 }
@@ -120,7 +141,7 @@ text-decoration: none; /* Entfernt den Unterstrich */
 .content-item:hover {
   background: rgba(255, 255, 255, 0.35);
   transform: translateY(-5px); /* Kleiner Sprung nach oben */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 0, 208, 0.4);
 }
 
 /* ACCESSIBILITY-State */
@@ -151,7 +172,7 @@ text-decoration: none; /* Entfernt den Unterstrich */
 
 .verlauf-footer {
   position: absolute;
-bottom: 0;
+  bottom: 0;
   left: 0;
   width: 100vw;
   height: 55%;
@@ -163,8 +184,6 @@ bottom: 0;
   z-index: -10;
   pointer-events: none;
 }
-
-
 
 /*___________Media Queries___________*/
 @media (max-width: 900px) {
