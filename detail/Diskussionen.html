@@ -7,23 +7,21 @@
     <style>
       @import url("https://use.typekit.net/pic0zpp.css");
 
-      /* --- Dein bestehendes Styling (angepasst) --- */
       .content {
         padding: 50px 20px;
         text-align: center;
       }
 
-      /* --- Das Herzstück: Die Gedanken-Cloud --- */
       .cloud-container {
         width: 100%;
-        height: 400px;
+        height: 600px;
         border: 2px solid #eee;
         border-radius: 15px;
-        position: relative; /* Wichtig für die absolute Positionierung der Gedanken */
+        position: relative; 
         overflow: hidden;
         background: #fdfdfd;
         margin: 20px 0;
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
       }
 
       .thought {
@@ -32,10 +30,10 @@
         font-family: "Knockout", sans-serif;
         font-weight: bold;
         color: #333;
-       text-transform: uppercase;
+        text-transform: uppercase;
         padding: 5px 10px;
-          font-size: clamp(1rem, 2vw, 2rem);
-          letter-spacing: 1%;
+        font-size: clamp(1rem, 2vw, 2rem);
+        letter-spacing: 1%;
         cursor: default;
         user-select: none;
         animation: floatAround linear infinite;
@@ -43,10 +41,18 @@
 
       /* Die Bewegung */
       @keyframes floatAround {
-        0% { transform: translate(0, 0); }
-        33% { transform: translate(30px, -20px); }
-        66% { transform: translate(-20px, 20px); }
-        100% { transform: translate(0, 0); }
+        0% {
+          transform: translate(0, 0);
+        }
+        33% {
+          transform: translate(30px, -20px);
+        }
+        66% {
+          transform: translate(-20px, 20px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
       }
 
       /* Eingabebereich */
@@ -59,14 +65,15 @@
 
       input#thoughtInput {
         padding: 10px;
-        width: 250px;
+        width: 550px;
+        height: 50px;
         border: 1px solid #ccc;
         border-radius: 5px;
       }
 
       button {
         padding: 10px 20px;
-        background-color: #000; /* Passend zu Stutzmedien-Logo? */
+        background-color: rgba(255, 105, 180, 1);
         color: white;
         border: none;
         border-radius: 5px;
@@ -74,7 +81,7 @@
       }
 
       button:hover {
-        background-color: #333;
+        background-color: #000000;
       }
     </style>
     <link rel="stylesheet" href="../styling/style.css" />
@@ -93,13 +100,15 @@
     <section class="content">
       <div class="text">
         <h2>DISKUSSIONEN</h2>
-        <div class="cloud-container" id="cloud">
-          </div>
-
         <div class="input-area">
-          <input type="text" id="thoughtInput" placeholder="Was denkst du gerade?">
-          <button onclick="addThought()">Abschicken</button>
+          <input
+            type="text"
+            id="thoughtInput"
+            placeholder="Was denkst du gerade?"
+          />
+          <button onclick="addThought()">Gedanke teilen</button>
         </div>
+        <div class="cloud-container" id="cloud"></div>
       </div>
     </section>
 
@@ -114,62 +123,78 @@
 
     <script>
       // 1. Beim Laden der Seite: Gespeicherte Gedanken aus dem LocalStorage laden
-window.onload = function() {
-    const savedThoughts = JSON.parse(localStorage.getItem('myThoughts')) || [];
-    savedThoughts.forEach(thoughtData => {
-        renderThought(thoughtData.text, thoughtData.color, thoughtData.x, thoughtData.y, thoughtData.duration);
-    });
-};
+      window.onload = function () {
+        const savedThoughts =
+          JSON.parse(localStorage.getItem("myThoughts")) || [];
+        savedThoughts.forEach((thoughtData) => {
+          renderThought(
+            thoughtData.text,
+            thoughtData.color,
+            thoughtData.x,
+            thoughtData.y,
+            thoughtData.duration,
+          );
+        });
+      };
 
-function addThought() {
-    const input = document.getElementById('thoughtInput');
-    const cloud = document.getElementById('cloud');
-    
-    if (input.value.trim() !== "") {
-        // Zufallswerte generieren
-        const text = input.value;
-        const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FFD133', '#33FFF5'];
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        const x = Math.random() * (cloud.clientWidth - 150);
-        const y = Math.random() * (cloud.clientHeight - 40);
-        const duration = Math.random() * 10 + 5;
+      function addThought() {
+        const input = document.getElementById("thoughtInput");
+        const cloud = document.getElementById("cloud");
 
-        // Gedanken anzeigen
-        renderThought(text, color, x, y, duration);
+        if (input.value.trim() !== "") {
+          // Zufallswerte generieren
+          const text = input.value;
+          const colors = [
+            "#9633ff",
+            "#5533ff",
+            "#3357FF",
+            "#F333FF",
+            "#342640",
+            "#33FFF5",
+          ];
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          const x = Math.random() * (cloud.clientWidth - 150);
+          const y = Math.random() * (cloud.clientHeight - 40);
+          const duration = Math.random() * 10 + 5;
 
-        // Gedanken im LocalStorage speichern
-        saveThoughtToLocal(text, color, x, y, duration);
+          // Gedanken anzeigen
+          renderThought(text, color, x, y, duration);
 
-        input.value = ""; 
-    }
-}
+          // Gedanken im LocalStorage speichern
+          saveThoughtToLocal(text, color, x, y, duration);
 
-// Diese Funktion erstellt nur das HTML-Element auf dem Bildschirm
-function renderThought(text, color, x, y, duration) {
-    const cloud = document.getElementById('cloud');
-    const newThought = document.createElement('div');
-    newThought.innerText = text;
-    newThought.className = 'thought';
-    
-    newThought.style.left = x + 'px';
-    newThought.style.top = y + 'px';
-    newThought.style.color = color; // Zufällige Farbe zuweisen
-    newThought.style.animationDuration = duration + 's';
+          input.value = "";
+        }
+      }
 
-    cloud.appendChild(newThought);
-}
+      function renderThought(text, color, x, y, duration) {
+        const cloud = document.getElementById("cloud");
+        const newThought = document.createElement("div");
+        newThought.innerText = text;
+        newThought.className = "thought";
 
-// Speichert den Gedanken in einer Liste im Browser-Speicher
-function saveThoughtToLocal(text, color, x, y, duration) {
-    const savedThoughts = JSON.parse(localStorage.getItem('myThoughts')) || [];
-    savedThoughts.push({ text, color, x, y, duration });
-    localStorage.setItem('myThoughts', JSON.stringify(savedThoughts));
-}
+        newThought.style.left = x + "px";
+        newThought.style.top = y + "px";
+        newThought.style.color = color; // Zufällige Farbe zuweisen
+        newThought.style.animationDuration = duration + "s";
 
-// Enter-Taste Support
-document.getElementById('thoughtInput').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') addThought();
-});
+        cloud.appendChild(newThought);
+      }
+
+      // Speichert den Gedanken in einer Liste im Browser-Speicher
+      function saveThoughtToLocal(text, color, x, y, duration) {
+        const savedThoughts =
+          JSON.parse(localStorage.getItem("myThoughts")) || [];
+        savedThoughts.push({ text, color, x, y, duration });
+        localStorage.setItem("myThoughts", JSON.stringify(savedThoughts));
+      }
+
+      // Enter-Taste Support
+      document
+        .getElementById("thoughtInput")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") addThought();
+        });
     </script>
   </body>
 </html>
