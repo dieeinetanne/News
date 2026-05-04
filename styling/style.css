@@ -68,6 +68,14 @@ body {
   z-index: 100;
 }
 
+.back-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 .news-container {
   column-count: 3;
   column-gap: 20px;
